@@ -8,6 +8,8 @@ OBJS=$(patsubst %.c, $(OUT_DIR)/%.o, $(SRCS))
 CFLAGS= -g -Wall -Werror -std=c99
 
 all: $(TEST_DATA)/.generated $(OUT_DIR)/$(TARGET)
+	tools/test_buffer.sh
+
 
 $(OUT_DIR)/$(TARGET): $(OBJS)
 	$(CC) -o $@ $^ $(CFLAGS)

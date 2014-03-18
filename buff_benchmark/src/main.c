@@ -66,7 +66,6 @@ static void dump_file(char *name, size_t buffer_size)
         }
 
         if (read_bytes < buffer_size) {
-            printf("End reading\n");
             break;
         }
     }
