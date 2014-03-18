@@ -7,10 +7,10 @@ OBJS=$(patsubst %.c, $(OUT_DIR)/%.o, $(SRCS))
 
 CFLAGS= -g -Wall -Werror
 
-all: $(TEST_DATA)/.generated $(TARGET)
+all: $(TEST_DATA)/.generated $(OUT_DIR)/$(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CC) -o $(OUT_DIR)/$@ $^ $(CFLAGS)
+$(OUT_DIR)/$(TARGET): $(OBJS)
+	$(CC) -o $@ $^ $(CFLAGS)
 
 $(TEST_DATA)/.generated:
 	mkdir -p $(TEST_DATA)
