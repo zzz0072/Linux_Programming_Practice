@@ -5,7 +5,7 @@ TARGET=buf_bench
 SRCS=$(shell ls src/*.c)
 OBJS=$(patsubst %.c, $(OUT_DIR)/%.o, $(SRCS))
 
-CFLAGS= -g -Wall -Werror
+CFLAGS= -g -Wall -Werror -std=c99
 
 all: $(TEST_DATA)/.generated $(OUT_DIR)/$(TARGET)
 
