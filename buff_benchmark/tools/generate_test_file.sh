@@ -1,4 +1,11 @@
 #!/bin/sh
+
+read -p "Warning: This script will generate 500MB for testing: Continue(Y/n): " ans
+
+if [ "$ans" != 'Y' ] ; then
+    exit 2
+fi
+
 file_size="1 500 1024 512000"
 
 # base data
