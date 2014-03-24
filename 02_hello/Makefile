@@ -1,5 +1,5 @@
 CFLAGS=-Wall -Werror -g
-TARGET=hello retrun_status
+TARGET=hello return_status
 OBJS=$(patsubst %, %.o, $(TARGET))
 
 all: $(TARGET)
@@ -8,7 +8,7 @@ all: $(TARGET)
 	$(CC) -o $(patsubst %.o, %, $@) $^
 
 test: $(TARGET)
-	./retrun_status 147
+	./return_status 147
 
 clean:
 	rm *.o *~ $(TARGET) -f
