@@ -1,12 +1,11 @@
 CFLAGS=-Wall -Werror -g
-TARGET=hello
+TARGET=hello retrun_status
 OBJS=$(patsubst %, %.o, $(TARGET))
 
-all: $(OBJS)
+all: $(TARGET)
 
 %.o: %.c
 	$(CC) -o $(patsubst %.o, %, $@) $^
-
 
 clean:
 	rm *.o *~ $(TARGET) -f
