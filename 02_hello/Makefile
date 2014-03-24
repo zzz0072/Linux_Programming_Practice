@@ -7,5 +7,8 @@ all: $(TARGET)
 %.o: %.c
 	$(CC) -o $(patsubst %.o, %, $@) $^
 
+test: $(TARGET)
+	./retrun_status 147
+
 clean:
 	rm *.o *~ $(TARGET) -f
