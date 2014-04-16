@@ -9,7 +9,6 @@ OBJS=$(patsubst %, %.o, $(TARGET)) $(DATA_OBJ)
 BFN=elf64-x86-64
 ARCH=i386
 
-
 $(TARGET): $(OBJS)
 	$(CC) -o $@ $(OBJS)
 
