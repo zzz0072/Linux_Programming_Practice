@@ -2,9 +2,15 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
-AC_CONFIG_SRCDIR([libs/libb.c])
+AC_INIT([Test_Autotools], [0], [test])
+AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_HEADERS([config.h])
+
+# Use static libary
+AC_PROG_RANLIB
+
+# Makefiles
+AC_CONFIG_FILES([Makefile src/Makefile libs/Makefile])
 
 # Checks for programs.
 AC_PROG_CC
