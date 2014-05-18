@@ -1,14 +1,18 @@
 LIBTOOL=libtool
-SRCS = liba.c
+SRCS = liba.c libb.c
 OBJS = $(patsubst %.c, %.o, $(SRCS))
-LOBJS = $(patsubst %.c, %.lo, $(SRCS))
 CFLAGS = -I$(INC_DIR)
 CC = gcc
 
-TARGET=liba.la
+TARGET=liba.la libb.la
 
-$(TARGET): $(OBJS)
-	$(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $@ $(LOBJS)
+all: $(OBJS) $(TARGET)
+
+liba.la: liba.lo
+	$(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $@ $^
+
+libb.la: libb.lo
+	$(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $@ $^ -rpath /usr/local/lib
 
 %.o:%.c
 	$(LIBTOOL) --mode=compile $(CC) $(CFLAGS) -c $^

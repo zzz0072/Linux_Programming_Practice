@@ -1,6 +1,6 @@
 LIBTOOL=libtool
 SRCS = test.c
-OBJS = $(patsubst %.c, %.o, $(SRCS)) ../libs/liba.la
+OBJS = $(patsubst %.c, %.o, $(SRCS)) ../libs/libb.la ../libs/liba.la
 CFLAGS = -I$(INC_DIR)
 CC = gcc
 
