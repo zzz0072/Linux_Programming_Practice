@@ -6,8 +6,8 @@ AC_INIT([Test_Autotools], [0], [test])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_HEADERS([config.h])
 
-# Use static libary
-AC_PROG_RANLIB
+# USE libtool
+LT_INIT
 
 # Makefiles
 AC_CONFIG_FILES([Makefile src/Makefile libs/Makefile])

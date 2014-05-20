@@ -1,4 +1,4 @@
-LDADD = ../libs/liba.a ../libs/libb.a
+LDADD = ../libs/liba.la ../libs/libb.la
 AM_CFLAGS = -I../include
 
 bin_PROGRAMS = test

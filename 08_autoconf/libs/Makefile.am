@@ -1,7 +1,8 @@
 AM_CFLAGS = -I../include
-lib_LIBRARIES = liba.a libb.a
-liba_a_SOURCES = liba.c
-libb_a_SOURCES = libb.c
+lib_LTLIBRARIES = liba.la libb.la
+liba_la_SOURCES = liba.c
+libb_la_SOURCES = libb.c
+
 
 include_HEADERS = ../include/liba.h ../include/libb.h
 
