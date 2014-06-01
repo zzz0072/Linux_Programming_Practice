@@ -7,8 +7,7 @@ all: $(TARGET).pot $(LOCALE).po $(TARGET).mo $(TARGET)
 
 $(TARGET).pot: $(TARGET).c
 	if [ ! -f $(TARGET).pot ] ; then                                \
-		xgettext -o $(TARGET).pot -d $(TARGET) --add-comments=- -k_ \
-					$(TARGET).c;                                    \
+		xgettext -o $(TARGET).pot --add-comments=- -k_ $(TARGET).c; \
 	fi
 
 $(LOCALE).po: $(TARGET).pot
