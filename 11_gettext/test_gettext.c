@@ -1,9 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <locale.h>
 #include <libintl.h>
 #define MAX_CHAR (32)
 
+#define QUOTE(x) #x
+#define TO_STR(x) QUOTE(x)
+#define ERRLINE(x) "Error at line " TO_STR(x)
 int main(int argc, char **argv)
 {
     char dest[MAX_CHAR];
@@ -12,10 +16,24 @@ int main(int argc, char **argv)
 
     /* Init gettext related APIs*/
     p= setlocale(LC_ALL, "");
+    if (!p) {
+        perror(ERRLINE(__LINE__));
+        exit(1);
+    }
     printf("%s\n", p);
+
     p = bindtextdomain(PACKAGE, LOCALEDIR);
+    if (!p) {
+        perror(ERRLINE(__LINE__));
+        exit(1);
+    }
     printf("%s\n", p);
+
     p = textdomain(PACKAGE);
+    if (!p) {
+        perror(ERRLINE(__LINE__));
+        exit(1);
+    }
     printf("%s\n", p);
 
     /*- Set up strings */
