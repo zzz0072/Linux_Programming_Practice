@@ -1,6 +1,7 @@
 TARGET=test_gettext
 LOCALE=zh_TW
-CFLAGS=-Wall -Werror -g -DPACKAGE=\"$(TARGET)\" -DLOCALEDIR=\"/usr/share/locale\"
+PO_DIR=$(shell pwd)/po
+CFLAGS=-Wall -Werror -g -DPACKAGE=\"$(TARGET)\" -DLOCALEDIR=\"$(PO_DIR)\"
 OBJS=$(patsubst %, %.o, $(TARGET))
 
 all: $(TARGET).pot $(LOCALE).po $(TARGET).mo $(TARGET)
@@ -18,7 +19,8 @@ $(LOCALE).po: $(TARGET).pot
 	fi
 
 $(TARGET).mo: $(LOCALE).po
-	msgfmt $^ -o $@
+	mkdir -p $(PO_DIR)/$(LOCALE)/LC_MESSAGES
+	msgfmt $^ -o $(PO_DIR)/$(LOCALE)/LC_MESSAGES/$@
 
 
 %.o: %.c
@@ -26,3 +28,4 @@ $(TARGET).mo: $(LOCALE).po
 
 clean:
 	rm -f *.o *~ $(TARGET) *.po *.pot *.mo
+	@echo To remove po directory, use: rm -rf $(PO_DIR)
