@@ -25,4 +25,4 @@ add_subdirectory(${LIB_DIR})
 # Build binary
 set(test_SRCS ${SRC_DIR}/test.c)
 add_executable(${PROJECT_NAME} ${test_SRCS})
-target_link_libraries(${PROJECT_NAME} ${LIB_DIR})
+target_link_libraries(${PROJECT_NAME} a b)
