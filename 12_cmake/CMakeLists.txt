@@ -19,8 +19,18 @@ set(CMAKE_VERBOSE_MAKEFILE true)
 # Where to include?
 include_directories(${INC_DIR})
 
-# Dive into libs directory
-add_subdirectory(${LIB_DIR})
+# Build library in libs directory or not?
+# Default is yes. Use cmake ../ -DBUILD_LIB_TOP=y to test it
+if(NOT DEFINED BUILD_LIB_TOP)
+    # Dive into libs directory
+    add_subdirectory(${LIB_DIR})
+else()
+    set(liba_SRCS ${LIB_DIR}/liba.c)
+    set(libb_SRCS ${LIB_DIR}/libb.c)
+
+    add_library(a SHARED ${liba_SRCS})
+    add_library(b SHARED ${libb_SRCS})
+endif()
 
 # Build binary
 set(test_SRCS ${SRC_DIR}/test.c)
