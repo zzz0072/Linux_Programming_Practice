@@ -1,15 +1,17 @@
 cmake_minimum_required(VERSION 2.8)
+# Project data
+project(testcmake)
 
 # Directories
 set(SRC_DIR src)
 set(LIB_DIR libs)
 set(INC_DIR include)
 
-# Project data
-project(testcmake)
-
 # Release mode
 set(CMAKE_BUILD_TYPE Debug)
+
+# Compile flags
+set(CMAKE_C_FLAGS "-Wall -Werror")
 
 # I like verbose, must after project, do not know why
 set(CMAKE_VERBOSE_MAKEFILE true)
