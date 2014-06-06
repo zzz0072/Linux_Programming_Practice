@@ -28,6 +28,7 @@ if(NOT DEFINED BUILD_LIB_TOP)
     # Dive into libs directory
     add_subdirectory(${SRC_DIR})
     add_subdirectory(${LIB_DIR})
+    add_subdirectory(${INC_DIR})
 else()
     # Build binary
     set(test_SRCS ${SRC_DIR}/test.c)
@@ -45,3 +46,4 @@ else()
     install(TARGETS ${PROJECT_NAME} DESTINATION bin)
     install(TARGETS a b LIBRARY DESTINATION lib)
 endif()
+
