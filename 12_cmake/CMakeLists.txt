@@ -22,6 +22,9 @@ set(CMAKE_VERBOSE_MAKEFILE true)
 # Where to include?
 include_directories(${INC_DIR})
 
+# --------------------------------------
+# Build and install
+# --------------------------------------
 # Build library in libs directory or not?
 # Default is yes. Use cmake ../ -DBUILD_LIB_TOP=y to test it
 if(NOT DEFINED BUILD_LIB_TOP)
@@ -46,4 +49,17 @@ else()
     install(TARGETS ${PROJECT_NAME} DESTINATION bin)
     install(TARGETS a b LIBRARY DESTINATION lib)
 endif()
+
+
+# --------------------------------------
+# Pack
+# --------------------------------------
+set(CPACK_GENERATOR "TGZ" )
+# Setup package version
+set(CPACK_PACKAGE_VERSION_MAJOR 0)
+set(CPACK_PACKAGE_VERSION_MINOR 1)
+set(CPACK_PACKAGE_VERSION_PATCH 0)
+
+include(CPack)
+
 
