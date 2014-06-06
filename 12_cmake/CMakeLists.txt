@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 # Project data
 project(testcmake)
 
+# Pack to deb
+set(CPACK_DEB_COMPONENT_INSTALL 1)
+
 # Directories
 set(SRC_DIR src)
 set(LIB_DIR libs)
@@ -23,16 +26,22 @@ include_directories(${INC_DIR})
 # Default is yes. Use cmake ../ -DBUILD_LIB_TOP=y to test it
 if(NOT DEFINED BUILD_LIB_TOP)
     # Dive into libs directory
+    add_subdirectory(${SRC_DIR})
     add_subdirectory(${LIB_DIR})
 else()
+    # Build binary
+    set(test_SRCS ${SRC_DIR}/test.c)
+    add_executable(${PROJECT_NAME} ${test_SRCS})
+    target_link_libraries(${PROJECT_NAME} a b)
+
+    # Build library
     set(liba_SRCS ${LIB_DIR}/liba.c)
     set(libb_SRCS ${LIB_DIR}/libb.c)
 
     add_library(a SHARED ${liba_SRCS})
     add_library(b SHARED ${libb_SRCS})
-endif()
 
-# Build binary
-set(test_SRCS ${SRC_DIR}/test.c)
-add_executable(${PROJECT_NAME} ${test_SRCS})
-target_link_libraries(${PROJECT_NAME} a b)
+    # Installation
+    install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+    install(TARGETS a b LIBRARY DESTINATION lib)
+endif()
