@@ -15,4 +15,4 @@ cd $TEST_DIR
 tar -zxvf ../$SRC_DIR/testautotools-0.tar.gz
 cd testautotools-0
 echo -e "\n" | dh_make --createorig -s
-dpkg-buildpackage
+dpkg-buildpackage -uc -us

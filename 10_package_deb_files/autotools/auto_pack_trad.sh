@@ -16,4 +16,4 @@ mv ../$SRC_DIR/testautotools-0.tar.gz testautotools_0.orig.tar.gz
 tar -zxvf testautotools_0.orig.tar.gz
 cd testautotools-0
 echo -e "\n" | dh_make -s
-dpkg-buildpackage
+dpkg-buildpackage -uc -us

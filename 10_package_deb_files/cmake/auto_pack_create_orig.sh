@@ -16,6 +16,6 @@ rm -rf test/${PKG_NAME}-${VER}/build
 # Packing
 cd $TEST_DIR/${PKG_NAME}-${VER}
 echo -e "\n" | dh_make -s --createorig
-dpkg-buildpackage
+dpkg-buildpackage -uc -us
 
 

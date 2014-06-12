@@ -18,4 +18,4 @@ tar zcvf ${PKG_NAME}_$VER.orig.tar.gz $PKG_NAME-$VER
 # Packing
 cd $PKG_NAME-$VER
 echo -e "\n" | dh_make -s
-dpkg-buildpackage
+dpkg-buildpackage -uc -us
