@@ -1,6 +1,6 @@
 #!/bin/sh -x
 # Prepare tarball
-SRC_DIR=../08_autoconf
+SRC_DIR=../../08_autoconf
 cd $SRC_DIR
 ./autogen.sh
 ./configure
