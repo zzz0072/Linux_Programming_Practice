@@ -1,7 +1,2 @@
-usr/lib/liba.so.0.0.0
-usr/lib/liba.so.0
-usr/lib/liba.so
-usr/lib/libb.so.0.0.0
-usr/lib/libb.so.0
-usr/lib/libb.so
+usr/lib/*.so.0*
 usr/bin/my_test
