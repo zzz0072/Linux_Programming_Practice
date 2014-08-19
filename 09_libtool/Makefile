@@ -1,7 +1,7 @@
 COMPILE_DIRS = libs src
 INC_DIR=$(shell pwd)/include
 
-.PHONY: all
+.PHONY: all clean
 
 all:
 	for i in $(COMPILE_DIRS); do make -C $$i INC_DIR=$(INC_DIR); done
