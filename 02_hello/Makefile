@@ -1,5 +1,5 @@
 CFLAGS=-Wall -Werror -g
-TARGET=hello return_status
+TARGET=hello1 hello2 hello3 hello4 return_status
 OBJS=$(patsubst %, %.o, $(TARGET))
 
 all: $(TARGET)
